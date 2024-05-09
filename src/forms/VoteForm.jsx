@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import getToken from '../services/get-token';
+import { useNavigate } from "react-router-dom"; 
+
+const host = import.meta.env.VITE_API_HOST;
 
 function VoteForm() {
     const [puntuaciones, setPuntuaciones] = useState([
@@ -13,7 +17,6 @@ function VoteForm() {
         { puntos: 2, pais: '' },
         { puntos: 1, pais: '' },
     ]);
-
     const [paisesDisponibles, setPaisesDisponibles] = useState([
         'España',
         'Alemania',
@@ -32,6 +35,7 @@ function VoteForm() {
         'Portugal',
         'Luxemburgo'
     ]);
+    const navigate = useNavigate();
 
     const handlePaisSelect = (index, pais) => {
         const updatedPuntuaciones = [...puntuaciones];
@@ -39,17 +43,36 @@ function VoteForm() {
         setPuntuaciones(updatedPuntuaciones);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const selectedPaises = puntuaciones.map((item) => item.pais);
-        const uniquePaises = [...new Set(selectedPaises)]; // Elimina duplicados
+        const uniquePaises = [...new Set(selectedPaises)];
         if (selectedPaises.length !== uniquePaises.length) {
             alert('Cada puntaje debe asignarse a un país diferente.');
         } else {
-
-            console.log('Enviar datos al servidor:', puntuaciones);
+            try {
+                const token = getToken()
+                console.log(token);
+                const response = await fetch(`${host}/vote`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "Authorization": `${token}`
+                    },
+                    body: JSON.stringify(puntuaciones)
+                });
+                if (response.ok) {
+                    console.log('Datos enviados al servidor:', puntuaciones);
+                    navigate("/dashboard")
+                } else {
+                    throw new Error('Error al enviar los datos al servidor.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         }
     };
+    
 
     return (
         <form className="formulario" onSubmit={handleSubmit}>
