@@ -41,10 +41,12 @@ function NameForm() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h2>¿Y tú quién eres?</h2>
             <input 
                 type="text"
                 name="name"
                 value={name}
+                placeholder="Inserta tu nombre"
                 onChange={handleChange}
                 required
             />

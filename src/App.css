@@ -1,5 +1,40 @@
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
+form > input {
+    margin: 0 auto;
+    width: 350px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+form > button {
+    margin: 0 auto;
+    padding: 10px;
+    width: 200px;
+}
+
+p {
+    margin: 5px;
+}
+
+form > .form-puntuaciones {
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-country {
+    width: 250px;
+    text-align: center;
+    height: 2rem;
+}
+
+option, .option {
+    text-align: center;
+}

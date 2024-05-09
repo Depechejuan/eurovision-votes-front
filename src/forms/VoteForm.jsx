@@ -76,18 +76,21 @@ function VoteForm() {
 
     return (
         <form className="formulario" onSubmit={handleSubmit}>
-            <h2>Formulario de Puntuaciones</h2>
+            <h2>Puntuaciones.</h2>
+            <p>Inserta aquí tus votos y siéntete como el Jurado de Eurovisión.</p>
+            <p>SPOILER: No lo eres.</p>
             {puntuaciones.map((puntuacion, index) => (
-                <div key={puntuacion.puntos}>
+                <div className="form-puntuaciones" key={puntuacion.puntos}>
                     <label>
-                        {puntuacion.puntos} Puntos -{' '}
+                        Los {puntuacion.puntos} Puntos - son para ... {' '}
                         <select
+                            className="select-country"
                             value={puntuacion.pais}
                             onChange={(e) => handlePaisSelect(index, e.target.value)}
                         >
                             <option value="">Elegir país</option>
                             {paisesDisponibles.map((pais) => (
-                                <option key={pais} value={pais} disabled={!paisesDisponibles.includes(pais)}>
+                                <option className="option" key={pais} value={pais} disabled={!paisesDisponibles.includes(pais)}>
                                     {pais}
                                 </option>
                             ))}
