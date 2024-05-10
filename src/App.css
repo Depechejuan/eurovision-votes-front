@@ -35,6 +35,17 @@ form > .form-puntuaciones {
     height: 2rem;
 }
 
-option, .option {
+option,
+.option {
     text-align: center;
+}
+
+section {
+    border: 1px solid black;
+    margin-bottom: 1rem;
+}
+
+ul,
+li {
+    list-style: none;
 }

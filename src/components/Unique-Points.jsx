@@ -34,7 +34,7 @@ function UniquePoints() {
             <h2>Tus Votos</h2>
             <ul>
                 {votes.map((vote, index) => (
-                    <li key={index}>
+                    <li key={index[0]}>
                         {vote.country}: {vote.points}
                     </li>
                 ))}

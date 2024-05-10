@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import getToken from "../services/get-token";
 
 const host = import.meta.env.VITE_API_HOST;
 
 function NameForm() {
     const [name, setName] = useState('');
     const navigate = useNavigate();
+    const token = getToken();
+
+    if (token) {
+        navigate("/dashboard")
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
 

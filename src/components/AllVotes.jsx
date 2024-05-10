@@ -21,7 +21,14 @@ function AllVotes() {
                     throw new Error('Error al obtener los datos');
                 }
                 const responseData = await response.json();
-                setVotesData(responseData.data);
+                
+                // Ordenar los votos de cada usuario por puntos
+                const sortedVotesData = responseData.data.map(user => ({
+                    ...user,
+                    votes: user.votes.sort((a, b) => b.puntos - a.puntos)
+                }));
+                
+                setVotesData(sortedVotesData);
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -33,11 +40,11 @@ function AllVotes() {
         <section>
             <h2>Los votos de los usuarios</h2>
             {votesData.map((userData, index) => (
-                <div key={index}>
+                <div key={index[0]}>
                     <h3>{userData.userName}</h3>
                     <ul>
                         {userData.votes.map((vote, voteIndex) => (
-                            <li key={voteIndex}>
+                            <li key={voteIndex[0]}>
                                 {vote.country}: {vote.puntos}
                             </li>
                         ))}

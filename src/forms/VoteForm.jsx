@@ -18,22 +18,31 @@ function VoteForm() {
         { puntos: 1, pais: '' },
     ]);
     const [paisesDisponibles, setPaisesDisponibles] = useState([
-        'España',
-        'Alemania',
-        'Italia',
-        'Francia',
-        'Reino Unido',
         'Suecia',
-        'Chipre',
-        'Serbia',
-        'Lituania',
-        'Irlanda',
         'Ucrania',
-        'Croacia',
-        'Eslovenia',
+        'Alemania',
+        'Luxemburgo',
+        'Países Bajos',
+        'Israel',
+        'Lituania',
+        'España',
+        'Estonia',
+        'Irlanda',
+        'Letonia',
+        'Grecia',
+        'Reino Unido',
+        'Noruega',
+        'Italia',
+        'Serbia',
         'Finlandia',
         'Portugal',
-        'Luxemburgo'
+        'Chipre',
+        'Suiza',
+        'Eslovenia',
+        'Croacia',
+        'Georgia',
+        'Francia',
+        'Austria'
     ]);
     const navigate = useNavigate();
 
