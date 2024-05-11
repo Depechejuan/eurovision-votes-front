@@ -46,7 +46,10 @@ body {
 h1 {
     font-size: 4em;
     line-height: 1.1;
-    color: black;
+    color: white;
+    -webkit-text-stroke: 2px #5893df; /* Borde del texto */
+    text-stroke: 20px #5893df; /* Borde del texto */
+    font-weight: bolder;
 }
 
 h2 {
