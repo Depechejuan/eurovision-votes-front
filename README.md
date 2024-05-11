@@ -1,8 +1,15 @@
-# React + Vite
+# EUROVISION VOTE - FRONTEND
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta aplicación es muy sencilla.
+Despliegala en tus servidores de confianza que tengan compatibilidad con:
 
-Currently, two official plugins are available:
+-   NodeJS (20.12.0)
+-   React/Vite
+-   MySQL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+· ¡¡Importante!!
+Requiere del repositorio BACKEND junto a este.
+
+Introduce tu nombre, vota como si fueses el jurado, y podrás ver cómo has votado tú, cómo han votado tus amigos, y las posiciones globales si tú y tus amigos fueseis los jurados.
+
+Fácil, sencillo, y divertido :)
