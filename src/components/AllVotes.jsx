@@ -22,8 +22,11 @@ function AllVotes() {
                 }
                 const responseData = await response.json();
                 
+                // Filtrar los datos para excluir al usuario "control_user"
+                const filteredVotesData = responseData.data.filter(user => user.userName !== "control_user");
+
                 // Ordenar los votos de cada usuario por puntos
-                const sortedVotesData = responseData.data.map(user => ({
+                const sortedVotesData = filteredVotesData.map(user => ({
                     ...user,
                     votes: user.votes.sort((a, b) => b.puntos - a.puntos)
                 }));

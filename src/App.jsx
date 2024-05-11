@@ -11,7 +11,9 @@ const host = import.meta.env.VITE_API_HOST;
 function App() {
     const [loading, setLoading] = useState(true);
     const [success, setSuccess] = useState(false);
-console.log("miaumiau");
+    console.log("miaumiau");
+
+    console.log(host);
     useEffect(() => {
         const fetchData = async () => {
             try {
