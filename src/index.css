@@ -86,6 +86,6 @@ button:focus-visible {
 }
 
 
-section {
+section, form {
     background: rgba(0,0,0,0.4);
 }
